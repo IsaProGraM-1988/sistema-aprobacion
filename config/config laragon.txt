@@ -1,0 +1,69 @@
+<?php
+// Configuración del sistema
+date_default_timezone_set('America/Santiago');
+setlocale(LC_TIME, 'es_ES.UTF-8');
+
+// Configuración de moneda chilena
+define('MONEDA', 'CLP');
+define('SIMBOLO_MONEDA', '$');
+define('DECIMALES', 0);
+define('SEPARADOR_MILES', '.');
+define('SEPARADOR_DECIMALES', ',');
+
+// ============================================================
+// RUTAS DEL SISTEMA
+// ============================================================
+
+if (!defined('BASE_PATH')) {
+    define('BASE_PATH', dirname(__DIR__));
+}
+
+if (!defined('BASE_URL')) {
+    // Para Laragon con dominio .test
+    define('BASE_URL', '/');
+}
+
+if (!defined('URL_SISTEMA')) {
+    define('URL_SISTEMA', BASE_URL . 'public/index.php?route=');
+}
+
+// ============================================================
+// CONFIGURACIÓN DE SESIÓN
+// ============================================================
+
+ini_set('session.cookie_httponly', 1);
+ini_set('session.use_only_cookies', 1);
+ini_set('session.cookie_secure', 0);
+
+// ============================================================
+// CONFIGURACIÓN DE CORREO
+// ============================================================
+
+define('SMTP_HOST', 'smtp.gmail.com');
+define('SMTP_PORT', 587);
+define('SMTP_USER', '');
+define('SMTP_PASS', '');
+define('SMTP_FROM', 'sistema@quillayessurlat.cl');
+define('SMTP_FROM_NAME', 'Sistema de Aprobaciones Quillayes Surlat');
+
+// ============================================================
+// CONFIGURACIÓN DE LÍMITES
+// ============================================================
+
+define('MAX_SKUS', 30);
+define('MAX_DIAS_PROMOCION', 365);
+
+// ============================================================
+// CONFIGURACIÓN DE SEGURIDAD
+// ============================================================
+
+define('CSRF_TOKEN_NAME', 'csrf_token');
+define('SALT', 'qU1ll4y3s_SurL4t_2025');
+
+// ============================================================
+// MOSTRAR ERRORES (desactivar en producción)
+// ============================================================
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
